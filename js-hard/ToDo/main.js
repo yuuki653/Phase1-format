@@ -5,19 +5,19 @@ const todo = document.getElementById("todo");
 addBtn.addEventListener("click", function () {
   if (task.value === "") {
     alert("空欄です");
-  } else {
-    let newTask = document.createElement("li");
-    let finishBtn = document.createElement("button");
-    newTask.textContent = task.value;
-    finishBtn.textContent = "完了";
-    todo.appendChild(newTask);
-    newTask.appendChild(finishBtn);
-    task.value = "";
-
-    finishBtn.addEventListener("click", function () {
-      todo.removeChild(finishBtn.parentElement);
-    });
+    return;
   }
+  let newTask = document.createElement("li");
+  let finishBtn = document.createElement("button");
+  newTask.textContent = task.value;
+  finishBtn.textContent = "完了";
+  todo.appendChild(newTask);
+  newTask.appendChild(finishBtn);
+  task.value = "";
+
+  finishBtn.addEventListener("click", function () {
+    todo.removeChild(newTask);
+  });
 });
 
 // const task = document.getElementById("add-area");
