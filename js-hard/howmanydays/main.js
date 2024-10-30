@@ -3,18 +3,19 @@
 
 // function countDown() {
 //   const diff = moment("2112-09-03 12:00:00").diff(moment());
+//   const duration = moment.duration(diff);
 
-//   const sec = moment("2112-09-03 12:00:00").diff(moment(), "seconds") % 60;
-//   const min = moment("2112-09-03 12:00:00").diff(moment(), "minutes") % 60;
-//   const hour = moment("2112-09-03 12:00:00").diff(moment(), "hours") % 24;
-//   const days = moment("2112-09-03 12:00:00").diff(moment(), "days");
-//   // const sec = Math.floor(diff / 1000) % 60;
-//   // const min = Math.floor(diff / 1000 / 60) % 60;
-//   // const hour = Math.floor(diff / 1000 / 60 / 60) % 24;
-//   // const days = Math.floor(diff / 1000 / 60 / 60 / 24);
+//   const sec = duration.seconds();
+//   // console.log(sec);
+//   const min = duration.minutes();
+//   // console.log(min);
+//   const hour = duration.hours();
+//   // console.log(hour);
+//   const days = Math.floor(duration.asDays());
+//   // console.log(days);
 
 //   countdown.textContent = `ドラえもんが生まれるまであと${days}日${hour}時間${min}分${sec}秒`;
-//   //   console.log(`あと${days}日${hour}時間${min}分${sec}秒`);
+//   console.log(`あと${days}日${hour}時間${min}分${sec}秒`);
 // }
 
 // setInterval(countDown, 1000);
@@ -28,15 +29,16 @@ const diffTime = document.getElementById("diffTime");
 dateSearch.addEventListener("click", function () {
   const countDown = function () {
     const diff = moment(dateSet.value).diff(moment());
+    const duration = moment.duration(diff);
 
-    const sec = moment(dateSet.value).diff(moment(), "seconds") % 60;
-    const min = moment(dateSet.value).diff(moment(), "minutes") % 60;
-    const hour = moment(dateSet.value).diff(moment(), "hours") % 24;
-    const days = moment(dateSet.value).diff(moment(), "days");
-    // const sec = Math.floor(diff / 1000) % 60;
-    // const min = Math.floor(diff / 1000 / 60) % 60;
-    // const hour = Math.floor(diff / 1000 / 60 / 60) % 24;
-    // const days = Math.floor(diff / 1000 / 60 / 60 / 24);
+    const sec = duration.seconds();
+    const min = duration.minutes();
+    const hour = duration.hours();
+    const days = Math.floor(duration.asDays());
+    // const sec = moment(dateSet.value).diff(moment(), "seconds") % 60;
+    // const min = moment(dateSet.value).diff(moment(), "minutes") % 60;
+    // const hour = moment(dateSet.value).diff(moment(), "hours") % 24;
+    // const days = moment(dateSet.value).diff(moment(), "days");
 
     diffTime.textContent = `${dateSet.value}まであと${days}日${hour}時間${min}分${sec}秒`;
   };
