@@ -79,9 +79,9 @@ let answerArr = [];
 const randomNum = function () {
   answerArr = [];
   while (answerArr.length < 3) {
-    Num = Math.floor(Math.random() * 10);
-    if (!answerArr.includes(Num)) {
-      answerArr.push(Num);
+    let num = Math.floor(Math.random() * 10);
+    if (!answerArr.includes(num)) {
+      answerArr.push(num);
     }
   }
   console.log(answerArr);
@@ -128,20 +128,17 @@ checkBtn.addEventListener("click", function () {
 
   alert(`${eat}EAT ${bite}BITE`);
   checkNum.value = "";
+  console.log(turn);
 
-  if (eat === 3) {
-    alert("正解");
-    checkNum.value = "";
+  if (eat !== 3) {
+    turn -= 1;
+  } else {
+    alert("正解！");
     randomNum();
-    turn = 11;
+    turn = 10;
   }
+  remainTurn.textContent = `あと残り${turn}回です。`;
 
-  turn -= 1;
-  if (turn > 0) {
-    remainTurn.textContent = `あと残り${turn}回です。`;
-    console.log(turn);
-    return;
-  }
   if (turn === 0) {
     remainTurn.textContent = `終了です。答えは【${answerArr.join(
       ""
@@ -150,6 +147,7 @@ checkBtn.addEventListener("click", function () {
     checkBtn.disabled = true;
     console.log(turn);
   }
+
   // if (turn === 0) {
   //   remainTurn.textContent = `終了です。答えは【${answerArr.join(
   //     ""

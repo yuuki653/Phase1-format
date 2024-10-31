@@ -1,220 +1,33 @@
-const sheet = document.getElementById("view");
-
-// 1列
-let B_Arr = [];
-const setB = function () {
-  B_Arr = [];
-  while (B_Arr.length < 5) {
-    let num = Math.floor(Math.random() * (16 - 1) + 1);
-
-    if (!B_Arr.includes(num)) {
-      B_Arr.push(num);
-    }
-  }
-};
-
-// // 2列
-let I_Arr = [];
-const setI = function () {
-  I_Arr = [];
-  while (I_Arr.length < 5) {
-    let num = Math.floor(Math.random() * (31 - 16) + 16);
-
-    if (!I_Arr.includes(num)) {
-      I_Arr.push(num);
-    }
-  }
-};
-
-// // 3列
-let N_Arr = [];
-const setN = function () {
-  N_Arr = [];
-  while (N_Arr.length < 5) {
-    let num = Math.floor(Math.random() * (46 - 31) + 31);
-
-    if (!N_Arr.includes(num)) {
-      N_Arr.push(num);
-    }
-  }
-};
-
-// // 4列
-let G_Arr = [];
-const setG = function () {
-  G_Arr = [];
-  while (G_Arr.length < 5) {
-    let num = Math.floor(Math.random() * (61 - 46) + 46);
-
-    if (!G_Arr.includes(num)) {
-      G_Arr.push(num);
-    }
-  }
-};
-
-// // 5列
-let O_Arr = [];
-const setO = function () {
-  O_Arr = [];
-  while (O_Arr.length < 5) {
-    let num = Math.floor(Math.random() * (76 - 61) + 61);
-
-    if (!O_Arr.includes(num)) {
-      O_Arr.push(num);
-    }
-  }
-};
-
-setB();
-console.log(B_Arr);
-setI();
-console.log(I_Arr);
-setN();
-N_Arr[2] = "free";
-console.log(N_Arr);
-setG();
-console.log(G_Arr);
-setO();
-console.log(O_Arr);
-
-const arr = [];
-arr[0] = B_Arr;
-arr[1] = I_Arr;
-arr[2] = N_Arr;
-arr[3] = G_Arr;
-arr[4] = O_Arr;
-
-console.log(arr);
-
-// BINGO列;
-const col = document.createElement("tr");
-sheet.appendChild(col);
-
-let bingo_Arr = ["B", "I", "N", "G", "O"];
-for (let i = 0; i < bingo_Arr.length; i++) {
-  const sq = document.createElement("td");
-  col.appendChild(sq);
-  sq.textContent = bingo_Arr[i];
-  sq.classList.add("bingo");
-}
-
-for (let row = 0; row < 5; row++) {
-  const tr = document.createElement("tr");
-  sheet.appendChild(tr);
-  for (let col = 0; col < 5; col++) {
-    const td = document.createElement("td");
-    tr.appendChild(td);
-    td.textContent = arr[col][row];
-    td.className = "td";
-  }
-}
-
-const opened = document.getElementsByClassName("td")[12];
-opened.classList.toggle("opened");
-
-// チャレンジ問題
 // const sheet = document.getElementById("view");
-// const set = document.getElementById("hitNum");
 
-// // 1列
-// let B_Arr = [];
-// const setB = function () {
-//   B_Arr = [];
-//   while (B_Arr.length < 5) {
-//     let num = Math.floor(Math.random() * (16 - 1) + 1);
-
-//     if (!B_Arr.includes(num)) {
-//       B_Arr.push(num);
-//     }
-//   }
-// };
-
-// // // 2列
-// let I_Arr = [];
-// const setI = function () {
-//   I_Arr = [];
-//   while (I_Arr.length < 5) {
-//     let num = Math.floor(Math.random() * (31 - 16) + 16);
-
-//     if (!I_Arr.includes(num)) {
-//       I_Arr.push(num);
-//     }
-//   }
-// };
-
-// // // 3列
-// let N_Arr = [];
-// const setN = function () {
-//   N_Arr = [];
-//   while (N_Arr.length < 5) {
-//     let num = Math.floor(Math.random() * (46 - 31) + 31);
-
-//     if (!N_Arr.includes(num)) {
-//       N_Arr.push(num);
-//     }
-//   }
-// };
-
-// // // 4列
-// let G_Arr = [];
-// const setG = function () {
-//   G_Arr = [];
-//   while (G_Arr.length < 5) {
-//     let num = Math.floor(Math.random() * (61 - 46) + 46);
-
-//     if (!G_Arr.includes(num)) {
-//       G_Arr.push(num);
-//     }
-//   }
-// };
-
-// // // 5列
-// let O_Arr = [];
-// const setO = function () {
-//   O_Arr = [];
-//   while (O_Arr.length < 5) {
-//     let num = Math.floor(Math.random() * (76 - 61) + 61);
-
-//     if (!O_Arr.includes(num)) {
-//       O_Arr.push(num);
-//     }
-//   }
-// };
-
-// setB();
-// console.log(B_Arr);
-// setI();
-// console.log(I_Arr);
-// setN();
-// N_Arr[2] = "free";
-// console.log(N_Arr);
-// setG();
-// console.log(G_Arr);
-// setO();
-// console.log(O_Arr);
-
-// const arr = [];
-// arr[0] = B_Arr;
-// arr[1] = I_Arr;
-// arr[2] = N_Arr;
-// arr[3] = G_Arr;
-// arr[4] = O_Arr;
-
-// console.log(arr);
-
-// // BINGO列;
-// const col = document.createElement("tr");
-// sheet.appendChild(col);
-
+// // BINGO列
 // let bingo_Arr = ["B", "I", "N", "G", "O"];
+// const tr = document.createElement("tr");
+// sheet.appendChild(tr);
+
 // for (let i = 0; i < bingo_Arr.length; i++) {
-//   const sq = document.createElement("td");
-//   col.appendChild(sq);
-//   sq.textContent = bingo_Arr[i];
-//   sq.classList.add("bingo");
+//   const td = document.createElement("td");
+//   tr.appendChild(td);
+//   td.textContent = bingo_Arr[i];
+//   td.classList.add("bingo");
 // }
 
 // // 数字列
+// let arr = [];
+// for (let col = 0; col < 5; col++) {
+//   let array = [];
+//   while (array.length < 5) {
+//     let num = Math.floor(Math.random() * 15 + (15 * col + 1));
+//     if (!array.includes(num)) {
+//       array.push(num);
+//     }
+//   }
+//   arr.push(array);
+// }
+// arr[2][2] = "free";
+
+// console.log(arr);
+
 // for (let row = 0; row < 5; row++) {
 //   const tr = document.createElement("tr");
 //   sheet.appendChild(tr);
@@ -226,11 +39,76 @@ opened.classList.toggle("opened");
 //   }
 // }
 
-// const closed = document.getElementsByClassName("td");
 // const opened = document.getElementsByClassName("td")[12];
 // opened.classList.toggle("opened");
 
-// set.addEventListener("click", function () {
-//   let num = Math.floor(Math.random() * 10);
-//   alert(`数字は${num}番です！`);
-// });
+// チャレンジ問題
+const sheet = document.getElementById("view");
+const set = document.getElementById("hitNum");
+
+// BINGO列
+let bingo_Arr = ["B", "I", "N", "G", "O"];
+const tr = document.createElement("tr");
+sheet.appendChild(tr);
+
+for (let i = 0; i < bingo_Arr.length; i++) {
+  const td = document.createElement("td");
+  tr.appendChild(td);
+  td.textContent = bingo_Arr[i];
+  td.classList.add("bingo");
+}
+
+// 数字列
+let arr = [];
+for (let col = 0; col < 5; col++) {
+  let array = [];
+  while (array.length < 5) {
+    let num = Math.floor(Math.random() * 15 + (15 * col + 1));
+    if (!array.includes(num)) {
+      array.push(num);
+    }
+  }
+  arr.push(array);
+}
+arr[2][2] = "free";
+
+console.log(arr);
+
+for (let row = 0; row < 5; row++) {
+  const tr = document.createElement("tr");
+  sheet.appendChild(tr);
+  for (let col = 0; col < 5; col++) {
+    const td = document.createElement("td");
+    tr.appendChild(td);
+    td.textContent = arr[col][row];
+    td.className = "nomal";
+    // console.log(nomal);
+  }
+}
+
+const opened = document.getElementsByClassName("nomal")[12];
+opened.classList.toggle("opened");
+
+const tds = document.getElementsByClassName("nomal");
+console.log(tds);
+console.log(Array.from(tds));
+
+// const chooseArr = [...Array(75)].map((_, i) => i + 1);
+// console.log(chooseArr);
+
+set.addEventListener("click", function () {
+  // const index = Math.floor(Math.random() * chooseArr.length);
+  // const searchNum = chooseArr[index];
+  // alert(`${searchNum}番`);
+  // chooseArr.splice(index, 1);
+  // console.log(chooseArr);
+
+  const searchNum = 10;
+  alert(`${searchNum}番`);
+
+  if (
+    Array.from(tds).find((nomal) => nomal.textContent === String(searchNum))
+  ) {
+    tds.classList.toggle("opened");
+  }
+});
