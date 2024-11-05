@@ -81,34 +81,40 @@ for (let row = 0; row < 5; row++) {
     const td = document.createElement("td");
     tr.appendChild(td);
     td.textContent = arr[col][row];
-    td.className = "nomal";
-    // console.log(nomal);
+    td.className = "normal";
   }
 }
 
-const opened = document.getElementsByClassName("nomal")[12];
+const opened = document.getElementsByClassName("normal")[12];
 opened.classList.toggle("opened");
 
-const tds = document.getElementsByClassName("nomal");
+const tds = document.getElementsByClassName("normal");
 console.log(tds);
 console.log(Array.from(tds));
 
-// const chooseArr = [...Array(75)].map((_, i) => i + 1);
-// console.log(chooseArr);
+const chooseArr = [...Array(75)].map((_, i) => i + 1);
+console.log(chooseArr);
 
 set.addEventListener("click", function () {
-  // const index = Math.floor(Math.random() * chooseArr.length);
-  // const searchNum = chooseArr[index];
-  // alert(`${searchNum}番`);
-  // chooseArr.splice(index, 1);
-  // console.log(chooseArr);
+  if (chooseArr.length > 0) {
+    let index = Math.floor(Math.random() * chooseArr.length);
+    let searchNum = chooseArr[index];
+    alert(`${searchNum}番`);
+    chooseArr.splice(index, 1);
+    console.log(chooseArr);
 
-  const searchNum = 10;
-  alert(`${searchNum}番`);
+    // const searchNum = 10;
+    // alert(`${searchNum}番`);
 
-  if (
-    Array.from(tds).find((nomal) => nomal.textContent === String(searchNum))
-  ) {
-    tds.classList.toggle("opened");
+    const foundTd = Array.from(tds).find(
+      (normal) => normal.textContent === String(searchNum)
+    );
+    console.log(foundTd);
+
+    if (foundTd) {
+      foundTd.classList.toggle("opened");
+    }
+  } else {
+    alert("全ての数字を出しました");
   }
 });
